@@ -20,7 +20,7 @@ We introduce Differentiable Microscopy ($\partial \mu$), a deep learning-based d
 ### Performance of complex-valued linear CNNs (SSIM)
 | Model                     | MNIST  | HeLa [0,Pi] | HeLa [0,2Pi] | Bacteria | Colab Notebook |
 |---------------------------|--------|-------------|--------------|----------|----------------|
-| Complex-valued linear CNN | 0.9727 | 0.9052       | 0.7059       | 0.9660   | <a href="https://colab.research.google.com/github/Bantami/All-Optical-QPM/blob/main/Colab/cnn_baseline_inference_colab.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>               |
+| Complex-valued linear CNN | 0.9727 | 0.9052       | 0.7059       | 0.9660   | <a href="https://colab.research.google.com/github/Bantami/All-Optical-QPM/blob/main/Colab/cnn_inference_colab.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>               |
 
 
 - <b>Expected results of each notebook :</b>
