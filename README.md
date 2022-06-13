@@ -45,9 +45,9 @@ unzip -qq hela.zip -d datasets/
 ```
 
 Update `dataloaders.py` to set,
-- MNIST data_dir (any existing path will work) in line [30](https://github.com/Bantami/All-Optical-QPM/blob/9fce5590bc9bdd6bb57896e39302b96f1d021e98/modules/dataloaders.py#L30) 
+- MNIST data_dir (any existing path will work) in line [30](https://github.com/Bantami/All-Optical-QPM/blob/683d3db9c9fee2cfd3c0545c26dc2c07ba019669/modules/dataloaders.py#L30)
 and 
-- HeLa data_dir in line [57](https://github.com/Bantami/All-Optical-QPM/blob/9fce5590bc9bdd6bb57896e39302b96f1d021e98/modules/dataloaders.py#L57)
+- HeLa data_dir in line [57](https://github.com/Bantami/All-Optical-QPM/blob/683d3db9c9fee2cfd3c0545c26dc2c07ba019669/modules/dataloaders.py#L57)
 
 
 
