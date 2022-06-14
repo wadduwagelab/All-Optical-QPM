@@ -12,7 +12,7 @@ We introduce Differentiable Microscopy ($\partial \mu$), a deep learning-based d
 Here we provide the Google Colab notebooks to reproduce the results of our best performing models for each dataset for our microscopy designs.
 
 - <b>Expected results of each notebook :</b>
-  - SSIM score for the unseen dataset. SSIM values should match the above table.
+  - SSIM score for the unseen dataset. SSIM values should match the below table.
   - Groundruth and the corresponding reconstructed images will be printed in the notebooks
 - <b>Expected runtime for Setting up and Inference on Colab</b> : ~2 Minutes (Make sure to select a GPU runtime)
 
