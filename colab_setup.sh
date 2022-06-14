@@ -20,5 +20,7 @@ echo "Pretrained models downloaded ✔"
 
 mkdir /content/datasets
 unzip -qq hela.zip -d /content/datasets/
-unzip -qq bacteria.zip -d /content/datasets/
+mkdir /content/datasets/bacteria
+unzip -qq bacteria.zip -d /content/datasets/bacteria
+mv /content/datasets/bacteria/bacteria /content/datasets/bacteria/val
 unzip -qq models.zip -d /content/models/
