@@ -39,19 +39,30 @@ Here we provide the Google Colab notebooks to reproduce the results of our best 
 git clone https://github.com/Bantami/All-Optical-QPM.git
 ```
 
-### 2. Download Hela dataset and set data_dir path in `dataloaders.py`
+### 2. Download HeLa and Bacteria datasets and set data_dir path in `dataloaders.py`
+
+[HeLa dataset link](https://drive.google.com/uc?id=1ickDfs6bA-YM7RQSaMPRqFnC7YApjW8e), [Bacteria dataset link](https://drive.google.com/uc?id=1CRaPVYVUs-vJA6SoXqeNhBRiqMwITbv6)
+
+To download the dataset through the commandline, follow the below steps
+
 ```bash
 pip install gdown
 gdown https://drive.google.com/uc?id=1ickDfs6bA-YM7RQSaMPRqFnC7YApjW8e
+gdown https://drive.google.com/uc?id=1CRaPVYVUs-vJA6SoXqeNhBRiqMwITbv6
 
 mkdir datasets/
 unzip -qq hela.zip -d datasets/
+
+mkdir -p datasets/bacteria/val
+unzip -j -qq bacteria.zip -d datasets/bacteria/val
+
 ```
 
 Update `dataloaders.py` to set,
-- MNIST data_dir (any existing path will work) in line [30](https://github.com/Bantami/All-Optical-QPM/blob/683d3db9c9fee2cfd3c0545c26dc2c07ba019669/modules/dataloaders.py#L30)
+- MNIST `data_dir` (any existing path will work) in line [30](https://github.com/Bantami/All-Optical-QPM/blob/683d3db9c9fee2cfd3c0545c26dc2c07ba019669/modules/dataloaders.py#L30)
 and 
-- HeLa data_dir in line [57](https://github.com/Bantami/All-Optical-QPM/blob/683d3db9c9fee2cfd3c0545c26dc2c07ba019669/modules/dataloaders.py#L57)
+- HeLa `data_dir` in line [57](https://github.com/Bantami/All-Optical-QPM/blob/683d3db9c9fee2cfd3c0545c26dc2c07ba019669/modules/dataloaders.py#L57)
+- Bacteria `data_dir` in line [111](https://github.com/Bantami/All-Optical-QPM/blob/3b872b2dd8bc9c9ac2218a83db487d738fd83bb2/modules/dataloaders.py#L111)
 
 
 
