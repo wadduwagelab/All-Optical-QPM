@@ -96,7 +96,7 @@ def get_wide_dataloaders(img_size, train_batch_size ,torch_seed=10, data_dir= '/
     return train_loader, val_loader
 
 
-def get_bacteria_dataloaders(img_size, train_batch_size ,torch_seed=10, data_dir= '/n/holyscratch01/wadduwage_lab/D2NN_QPM_classification/datasets/bacteria_np', task_type= 'phase2amp',shrinkFactor = 1, biasOnoise=0, photon_count=1, cfg= None, **kwargs):
+def get_bacteria_dataloaders(img_size, train_batch_size ,torch_seed=10, data_dir= '/content/datasets/bacteria', task_type= 'phase2amp',shrinkFactor = 1, biasOnoise=0, photon_count=1, cfg= None, **kwargs):
     '''
         Function to return train, validation QPM dataloaders
         Args:
