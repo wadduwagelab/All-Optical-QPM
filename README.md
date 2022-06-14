@@ -9,6 +9,13 @@ We introduce Differentiable Microscopy ($\partial \mu$), a deep learning-based d
 
 ## Running Pretrained Models
 
+Here we provide the Google Colab notebooks to reproduce the results of our best performing models for each dataset for our microscopy designs.
+
+- <b>Expected results of each notebook :</b>
+  - SSIM score for the unseen dataset. SSIM values should match the above table.
+  - Groundruth and the corresponding reconstructed images will be printed in the notebooks
+- <b>Expected runtime for Setting up and Inference on Colab</b> : ~2 Minutes (Make sure to select a GPU runtime)
+
 ### Performance of Optical Models (SSIM)
 
 | Model                            | MNIST  | HeLa [0,Pi] | HeLa [0,2Pi] | Bacteria | Colab Notebook |
@@ -23,10 +30,7 @@ We introduce Differentiable Microscopy ($\partial \mu$), a deep learning-based d
 | Complex-valued linear CNN | 0.9727 | 0.9052       | 0.7059       | 0.9660   | <a href="https://colab.research.google.com/github/Bantami/All-Optical-QPM/blob/main/Colab/cnn_inference_colab.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>               |
 
 
-- <b>Expected results of each notebook :</b>
-  - SSIM score for the unseen dataset. SSIM values should match the above table.
-  - Groundruth and the corresponding reconstructed images will be printed in the notebooks
-- <b>Expected runtime for Setting up and Inference on Colab</b> : ~2 Minutes (Make sure to select a GPU runtime)
+
 ## Training Models
 
 ### 1. Clone the reposoitory
