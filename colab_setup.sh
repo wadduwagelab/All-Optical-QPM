@@ -3,8 +3,8 @@
 # conda install -c conda-forge wandb
 
 ## Remove incompatible version from colab and reinstall correct version
-pip -qq uninstall imgaug -y
-pip -qq install imgaug==0.2.6
+pip -q uninstall imgaug -y
+pip -q install imgaug==0.2.6
 
 pip install -q -r /content/All-Optical-QPM/requirements.txt
 
