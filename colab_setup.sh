@@ -24,3 +24,4 @@ unzip -qq hela.zip -d /content/datasets/
 mkdir -p /content/datasets/bacteria/val
 unzip -j -qq bacteria.zip -d /content/datasets/bacteria/val
 
+unzip -qq models.zip -d /content/models/
