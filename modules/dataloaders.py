@@ -113,10 +113,10 @@ def get_bacteria_dataloaders(img_size, train_batch_size ,torch_seed=10, data_dir
     # transforms.ToPILImage(), 
     my_transform= transforms.Compose([transforms.ToTensor(), transforms.Resize((int(img_size//shrinkFactor), int(img_size//shrinkFactor))), transforms.CenterCrop((img_size, img_size))])
 
-    train_data = bacteria_dataset(data_dir=data_dir, type_= 'train', transform = my_transform, task_type= task_type, biasOnoise = biasOnoise, photon_count = photon_count, cfg= cfg)
+    # train_data = bacteria_dataset(data_dir=data_dir, type_= 'train', transform = my_transform, task_type= task_type, biasOnoise = biasOnoise, photon_count = photon_count, cfg= cfg)
     val_data   = bacteria_dataset(data_dir=data_dir, type_= 'val',   transform = my_transform, task_type= task_type, biasOnoise = biasOnoise, photon_count = photon_count, cfg= cfg)
     
-    train_loader = DataLoader(train_data, batch_size=train_batch_size, shuffle=True, drop_last= True)
+    # train_loader = DataLoader(train_data, batch_size=train_batch_size, shuffle=True, drop_last= True)
     val_loader = DataLoader(val_data, batch_size=15, shuffle=False, drop_last= True)
 
-    return train_loader, val_loader
+    return 0, val_loader
