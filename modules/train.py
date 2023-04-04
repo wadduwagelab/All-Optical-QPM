@@ -14,6 +14,8 @@ from modules.loss import *
 from modules.vis_utils import *
 from modules.eval_metrics import *
 
+import wandb
+
 
 def train_and_log(cfg):
     '''
@@ -31,13 +33,16 @@ def train_and_log(cfg):
     shrinkFactor = cfg['shrink_factor'] if 'shrink_factor' in cfg.keys() else 1
     exp_name   = cfg['exp_name']
     save_results_local = cfg['save_results_local'] # Indicates after how many number of epochs results should be saved locally
-
+    log_wandb= cfg['log_wandb']
+    
     train_loader, val_loader = eval(cfg['get_dataloaders'])(cfg['img_size'], cfg['train_batch_size'], torch_seed,  task_type= task_type, shrinkFactor = shrinkFactor, cfg=cfg)
     device = cfg['device']
 
     torch.manual_seed(torch_seed)
     model = eval(model_type)(cfg).to(device)
-            
+    
+    if (log_wandb): wandb.watch(model)
+    
     criterion= eval(cfg['loss_func']) # Loss function
     opt= torch.optim.Adam(model.parameters(), lr= cfg['learning_rate']) # Initializing the optimizer
 
@@ -87,7 +92,21 @@ def train_and_log(cfg):
         if (epoch+1)%save_results_local==0:
             fig_clipped.savefig(f'../results/{exp_name}/{caption}.png')
             plt.show()
-        
+            
+    
+        if (log_wandb): 
+            wandb.log({"Training Loss": loss_train,
+                "Training SSIM11_RD": ssim11rd_train,
+                "Training L1":l1_train,
+
+                "Validation Loss": loss_val,
+                "Validation SSIM11_RD": ssim11rd_val,
+                "Validation L1":l1_val,
+
+                "Validation Examples": images,
+
+                "epoch":epoch+1})
+            
         # Save model
         save_model_name=  f'../results/{exp_name}/latest_model.pth' 
         torch.save({

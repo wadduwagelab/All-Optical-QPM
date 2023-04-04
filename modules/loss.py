@@ -3,9 +3,6 @@ import torch.nn.functional as F
 import torch.nn as nn
 
 class BerHu(nn.Module):
-    '''
-        Implements the Revserse Huber Loss function.
-    '''
     def __init__(self, reduction: str = 'mean', threshold: float = 0.2) -> None :
         '''
             Args:
@@ -25,7 +22,7 @@ class BerHu(nn.Module):
             Function to calculate reversed huber distance between predicted and ground truth.
             
             Args:
-                X_hat : Predicted image    ((n_samples, img_size, img_size), dtype= torch.float)  
+                X_hat : Predicted image ((n_samples, img_size, img_size), dtype= torch.float)  
                 X     : Ground Truth image ((n_samples, img_size, img_size), dtype= torch.float)  
                 
             Returns:
@@ -35,11 +32,15 @@ class BerHu(nn.Module):
 
         phi =  torch.std(X, unbiased=False) * self.threshold 
 
-        L1 = -F.threshold(-diff, -phi, 0.)
-        L2 =  F.threshold(diff**2 - phi**2, 0., -phi**2.) + phi**2
-        L2 =  L2 / (2.*phi)
+        L1 = -F.threshold(-diff, -phi, 0.)                         # L1 loss for values less than thresh (phi)
+        L2 =  F.threshold(diff**2 - phi**2, 0., -phi**2.) + phi**2 # L2 loss for values greater than thresh (phi)
 
-        loss = L1 + L2
+
+        L2_ = F.threshold(L2, phi**2, -phi**2) + phi**2 # L2 loss + phi^2 for values greater than thresh (phi)
+        L2_ = L2_ / (2.*phi) # Equation : (L2 + phi^2)/(2*Phi)
+
+        loss = L1 + L2_
+
         if(self.reduction ==  'mean'):
             loss = torch.mean(loss)
         else:

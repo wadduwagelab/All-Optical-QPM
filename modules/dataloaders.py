@@ -54,7 +54,8 @@ def get_qpm_np_dataloaders(img_size, train_batch_size ,torch_seed=10, data_dir= 
             val_loader   : Data loader for validation
     '''
 
-    data_dir= '/content/datasets/qpm_np_v3/'
+    #data_dir= '/content/datasets/qpm_np_v3/'
+    data_dir= '/n/holyscratch01/wadduwage_lab/qpm_np_v3_RemovedInverted'
     torch.manual_seed(torch_seed)
 
     my_transform= transforms.Compose([transforms.ToTensor(), transforms.Resize((int(img_size//shrinkFactor), int(img_size//shrinkFactor))), transforms.CenterCrop((img_size, img_size))])
