@@ -109,7 +109,7 @@ def get_bacteria_dataloaders(img_size, train_batch_size ,torch_seed=10, data_dir
             train_loader : Data loader for training
             val_loader   : Data loader for validation
     '''
-    data_dir= '/content/datasets/bacteria'
+    data_dir= '/n/holyscratch01/wadduwage_lab/D2NN_QPM_classification/datasets/bacteria_np'
     
     torch.manual_seed(torch_seed)
     # transforms.ToPILImage(), 
