@@ -10,7 +10,7 @@ from modules.datasets import *
 import matplotlib.pyplot as plt
 
 
-def get_mnist_dataloaders(img_size, train_batch_size ,torch_seed=10, task_type= 'phase2intensity', shrinkFactor = 1, **kwargs):
+def get_mnist_dataloaders(img_size, train_batch_size ,torch_seed=10, task_type= 'phase2intensity', shrinkFactor = 1,cfg=None, **kwargs):
     '''
         Function to return train, validation MNIST dataloaders
         Args:
@@ -27,15 +27,15 @@ def get_mnist_dataloaders(img_size, train_batch_size ,torch_seed=10, task_type= 
     
     torch.manual_seed(torch_seed)
     
-    data_dir= '/n/holyscratch01/wadduwage_lab/fypteam_22/datasets/temp_mnist'
+    data_dir= '/n/holyscratch01/wadduwage_lab/fypteam_22/datasets/mnist'
 
     train_data = datasets.MNIST(root=data_dir, train=True, download=True)
     test_data = datasets.MNIST(root=data_dir, train=False, download=True)
 
     my_transform= transforms.Compose([transforms.ToTensor(), transforms.Resize((int(img_size//shrinkFactor), int(img_size//shrinkFactor))), transforms.CenterCrop((img_size, img_size))])
 
-    train_loader = DataLoader(mnist_dataset(data= train_data.data[:54000], labels= train_data.targets[:54000], transform= my_transform, task_type= task_type), batch_size=train_batch_size, shuffle=True, drop_last= True)
-    val_loader = DataLoader(mnist_dataset(data= train_data.data[54000:], labels= train_data.targets[54000:], transform= my_transform, task_type= task_type), batch_size=32, shuffle=False, drop_last= True)
+    train_loader = DataLoader(mnist_dataset(data= train_data.data[:54000], labels= train_data.targets[:54000], transform= my_transform, task_type= task_type, cfg= cfg), batch_size=train_batch_size, shuffle=True, drop_last= True)
+    val_loader = DataLoader(mnist_dataset(data= train_data.data[54000:], labels= train_data.targets[54000:], transform= my_transform, task_type= task_type, cfg= cfg), batch_size=32, shuffle=False, drop_last= True)
 
     return train_loader, val_loader
 
