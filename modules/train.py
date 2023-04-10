@@ -77,16 +77,16 @@ def train_and_log(cfg):
         caption = f"epoch{epoch+1}(val)@@loss_BerHu({np.round(loss_val, decimals= 5)})@ssim11({np.round(ssim11rd_val, decimals= 5)})@l1({np.round(l1_val, decimals= 5)})"     
         
         if (cfg['model'] == 'fourier_model'):
-            images, fig = plot_phase_amp_weights_fourier(model, pred_img_val.detach().cpu(), gt_img_val.detach().cpu(), caption= caption, cfg = cfg, return_fig = True)  # To plot the phase, amplitudes of ground truth image and predicted image and the weights of the model
+            images, fig = plot_phase_amp_weights_fourier(model, pred_img_val.detach().cpu(), gt_img_val.detach().cpu(), caption= caption, cfg = cfg, log_wandb=True, return_fig = True)  # To plot the phase, amplitudes of ground truth image and predicted image and the weights of the model
         else:
-            images, fig = plot_phase_amp_set(pred_img_val.detach().cpu(), gt_img_val.detach().cpu(), caption= caption, cfg = cfg, return_fig = True)  # To plot the phase and amplitudes of a ground truth image and predicted image
+            images, fig = plot_phase_amp_set(pred_img_val.detach().cpu(), gt_img_val.detach().cpu(), caption= caption, cfg = cfg, log_wandb=True, return_fig = True)  # To plot the phase and amplitudes of a ground truth image and predicted image
             
         if (epoch+1)%save_results_local==0: # Plot 
             fig.savefig(f'../results/{exp_name}/{caption}.png')
             plt.show()
         
         
-        fig_clipped = plot_phase_amp_set_clipped(pred_img_val.detach().cpu(), gt_img_val.detach().cpu(), caption= caption, cfg = cfg, return_fig = True)
+        images_clipped, fig_clipped = plot_phase_amp_set_clipped(pred_img_val.detach().cpu(), gt_img_val.detach().cpu(), caption= caption, cfg = cfg, log_wandb=True, return_fig = True)
         
             
         if (epoch+1)%save_results_local==0:
@@ -104,6 +104,7 @@ def train_and_log(cfg):
                 "Validation L1":l1_val,
 
                 "Validation Examples": images,
+                "Validation Examples Clipped": images_clipped,
 
                 "epoch":epoch+1})
             

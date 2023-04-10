@@ -6,7 +6,7 @@ import cv2
 import math
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
-def plot_phase_amp_set(pred_img_set, gt_img_set, caption= 'no caption', cfg = None, return_fig = False):    
+def plot_phase_amp_set(pred_img_set, gt_img_set, caption= 'no caption', cfg = None, log_wandb=False, return_fig = False):    
     '''
         Function to plot phases and amplitudes of ground truth and predicted complex images
         (Mainly used for D2NN training)
@@ -55,9 +55,7 @@ def plot_phase_amp_set(pred_img_set, gt_img_set, caption= 'no caption', cfg = No
     plt.title("Reconstructed : Intensity")
     
     plt.suptitle(caption)    
-    
-    log_wandb= False
-    
+
     ## Wandb
     if log_wandb:
         images = wandb.Image(fig  , caption=caption)
@@ -69,7 +67,7 @@ def plot_phase_amp_set(pred_img_set, gt_img_set, caption= 'no caption', cfg = No
         plt.show()
         return images
     
-def plot_phase_amp_set_clipped(pred_img_set, gt_img_set, caption= 'no caption', cfg = None, return_fig = False):  
+def plot_phase_amp_set_clipped(pred_img_set, gt_img_set, caption= 'no caption', cfg = None, log_wandb=False, return_fig = False):  
     '''
         Function to plot phases and amplitudes of ground truth and predicted complex images
         - Outputs are clipped to [0,1]
@@ -118,12 +116,18 @@ def plot_phase_amp_set_clipped(pred_img_set, gt_img_set, caption= 'no caption', 
     
     plt.suptitle(caption)
 
+    ## Wandb
+    if log_wandb:
+        images = wandb.Image(fig  , caption=caption)
+    else:images= None
+    
     if return_fig:
-        return fig
+        return images, fig
     else:
         plt.show()
+        return images 
 
-def plot_phase_amp_weights_fourier(model, pred_img_set, gt_img_set, caption= 'no caption', cfg = None, return_fig = False):   
+def plot_phase_amp_weights_fourier(model, pred_img_set, gt_img_set, caption= 'no caption', cfg = None, log_wandb=False, return_fig = False):   
     '''
         Function to plot phases and amplitudes of ground truth and predicted complex images
         (Mainly used for Fourier filter training)
@@ -195,9 +199,7 @@ def plot_phase_amp_weights_fourier(model, pred_img_set, gt_img_set, caption= 'no
             
     
     plt.suptitle(caption)   
-    
-    log_wandb= False
-    
+        
     ## Wandb
     if log_wandb:
         images = wandb.Image(fig  , caption=caption)

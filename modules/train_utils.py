@@ -79,7 +79,7 @@ def loop(model, loader, criterion, opt, device, type_= 'train', model_type='four
 
             else: # For the MNIST dataloader
                 ground_truth = ground_truth[:,spos:epos,spos:epos] # Crop the groundtruth image
-                gt_angle = ground_truth.angle()/np.pi
+                gt_angle = (ground_truth.angle()%(2*np.pi))/angle_max
                 gt_abs = ground_truth.abs()
             
             pred_out= out_scale * pred_img.abs()**2
@@ -103,7 +103,7 @@ def loop(model, loader, criterion, opt, device, type_= 'train', model_type='four
                     ground_truth = ground_truth[:,spos:epos,spos:epos].abs() + 1j*gt # Preparing the groundtruth in a suitable format for the plot functions
                 else:
                     ground_truth = ground_truth[:,spos:epos,spos:epos] # Crop the groundtruth image
-                    gt_angle = ground_truth.angle()/np.pi
+                    gt_angle = (ground_truth.angle()%(2*np.pi))/angle_max
                     gt_abs = ground_truth.abs()
                     ground_truth = gt_abs + 1j*gt_angle # Preparing the groundtruth in a suitable format for the plot functions
 
