@@ -80,9 +80,10 @@ class mnist_dataset(torch.utils.data.Dataset):
             task_type : type of input to output conversion
     '''
     
-    def __init__(self, data= None, labels= None,transform= None,task_type= 'phase2intensity', **kwargs):
+    def __init__(self, data= None, labels= None,transform= None,task_type= 'phase2intensity',cfg=None, **kwargs):
         self.transform= transform
         self.task_type= task_type
+        self.cfg = cfg
 
         self.data= np.array(data)
         self.labels= np.array(labels)
@@ -92,9 +93,14 @@ class mnist_dataset(torch.utils.data.Dataset):
 
     def __getitem__(self, idx):
         transformed_img = self.transform(Image.fromarray(self.data[idx]))
+        if self.cfg['angle_max'] == 'np.pi':
+            angle_max= eval(self.cfg['angle_max'])
+        elif self.cfg['angle_max'] == '2*np.pi':
+            delta = 0.000001
+            angle_max= eval(self.cfg['angle_max']) - delta
         
         if self.task_type=='phase2intensity':
-            mnist_img = torch.exp(1j*transformed_img*np.pi)  # Convert input ground truth images to phase images
+            mnist_img = torch.exp(1j*transformed_img*angle_max)  # Convert input ground truth images to phase images
         else:
             raise NotImplementedError(f"Code should be verified for task_type : {task_type}")
         

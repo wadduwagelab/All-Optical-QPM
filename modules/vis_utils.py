@@ -56,10 +56,18 @@ def plot_phase_amp_set(pred_img_set, gt_img_set, caption= 'no caption', cfg = No
     
     plt.suptitle(caption)    
     
+    log_wandb= False
+    
+    ## Wandb
+    if log_wandb:
+        images = wandb.Image(fig  , caption=caption)
+    else:images= None
+    
     if return_fig:
-        return fig
+        return images, fig
     else:
         plt.show()
+        return images
     
 def plot_phase_amp_set_clipped(pred_img_set, gt_img_set, caption= 'no caption', cfg = None, return_fig = False):  
     '''
@@ -186,12 +194,20 @@ def plot_phase_amp_weights_fourier(model, pred_img_set, gt_img_set, caption= 'no
         plt.title(f"t (Amplitude) : Layer{idx}")
             
     
-    plt.suptitle(caption)    
-
+    plt.suptitle(caption)   
+    
+    log_wandb= False
+    
+    ## Wandb
+    if log_wandb:
+        images = wandb.Image(fig  , caption=caption)
+    else:images= None
+    
     if return_fig:
-        return fig
+        return images, fig
     else:
         plt.show()
+        return images 
 
 def plot_losses(losses_val, losses_train, return_fig= False):
     '''
