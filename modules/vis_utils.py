@@ -5,6 +5,7 @@ from torchvision.utils import make_grid
 import cv2
 import math
 from mpl_toolkits.axes_grid1 import make_axes_locatable
+import wandb
 
 def plot_phase_amp_set(pred_img_set, gt_img_set, caption= 'no caption', cfg = None, log_wandb=False, return_fig = False):    
     '''
