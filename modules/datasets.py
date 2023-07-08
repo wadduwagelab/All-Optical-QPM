@@ -160,7 +160,7 @@ class bacteria_dataset(torch.utils.data.Dataset):
         self.biasOnoise = biasOnoise
         self.photon_count = photon_count
 
-        self.phase_img_dirs = sorted(glob.glob(f'{data_dir}/{type_}/*'), key= lambda x: int(x.split('/')[-1][:-4]))
+        self.phase_img_dirs = sorted(glob.glob(f'{data_dir}/{type_}/*/*'), key= lambda x: int(x.split('/')[-1][:-4]))
         self.phase_img_dirs = self.phase_img_dirs[:int(len(self.phase_img_dirs)*0.15)]
         
     def __len__(self):
