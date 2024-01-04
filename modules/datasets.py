@@ -106,42 +106,6 @@ class mnist_dataset(torch.utils.data.Dataset):
         
         return mnist_img, torch.tensor(self.labels[idx])
 
-    
-    
-class wide_dataset(torch.utils.data.Dataset):
-    '''
-        A standard dataset class to get QPM dataset
-        
-        Args:
-            data_dir  : data directory which contains data hierarchy as `./train/P1024_0.npy`
-            type_     : whether dataloader if train/ val 
-            transform : torchvision.transforms
-    '''
-    
-    def __init__(self, data_dir='datasets/wide_dataset', type_= 'train', transform= None, task_type= 'phase2amp', **kwargs):
-        self.transform= transform
-        self.task_type= task_type
-        self.complex_img_dirs   = sorted(glob.glob(f'{data_dir}/{type_}/*'))
-       
-    def __len__(self):
-        return len(self.complex_img_dirs)
-
-    def __getitem__(self, idx): 
-        complex_img = np.load(self.complex_img_dirs[idx])
-
-        amp_img_   = Image.fromarray(np.abs(complex_img).astype('float64'), 'RGB')
-        phase_img_ = Image.fromarray(np.angle(complex_img).astype('float64'), 'RGB')
-
-        amp_img   = self.transform(amp_img_)
-        phase_img = self.transform(phase_img_)
-        
-        if self.task_type=='phase2intensity':
-            qpm_img= amp_img * torch.exp(1j*phase_img*np.pi)
-        else:
-            raise NotImplementedError(f"Code should be verified for task_type : {task_type}")
-        
-        return qpm_img, 0
-
 class bacteria_dataset(torch.utils.data.Dataset):
     '''
         A standard dataset class to get the bacteria dataset
