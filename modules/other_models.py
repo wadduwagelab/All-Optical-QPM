@@ -50,17 +50,11 @@ class complex_cnn(nn.Module):
         self.last = ComplexConv2d(in_channels= self.n_channels, out_channels= 1, kernel_size=self.kernel_size, stride= 1, padding=self.kernel_size//2, bias=self.last_bias)
 
         output_scale=cfg['output_scale']
-        output_bias= cfg['output_bias']
     
         if cfg['output_scale_learnable']:
             self.output_scale= nn.Parameter(torch.tensor(output_scale))
         else:
             self.output_scale= output_scale
-
-        if cfg['output_bias_learnable']:
-            self.output_bias= nn.Parameter(torch.tensor(output_bias))
-        else:
-            self.output_bias= output_bias
         
     def forward(self, input_e_field):
         
@@ -70,4 +64,4 @@ class complex_cnn(nn.Module):
             x= self.layer_blocks[idx](x)
         x = self.last(x)
         
-        return x[:,0], self.output_bias, self.output_scale # Removing the channel dimension
+        return x[:,0], self.output_scale # Removing the channel dimension
