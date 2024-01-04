@@ -82,7 +82,7 @@ def loop(model, loader, criterion, opt, device, type_= 'train', model_type='four
                 gt_angle = (ground_truth.angle()%(2*np.pi))/angle_max
                 gt_abs = ground_truth.abs()
             
-            pred_out= out_scale * pred_img.abs()**2
+            pred_out= out_scale * (pred_img.abs()**2) * circ[:,spos:epos,spos:epos]
 
             loss = criterion(pred_out, gt_angle)
                 
@@ -107,7 +107,7 @@ def loop(model, loader, criterion, opt, device, type_= 'train', model_type='four
                     gt_abs = ground_truth.abs()
                     ground_truth = gt_abs + 1j*gt_angle # Preparing the groundtruth in a suitable format for the plot functions
 
-                pred_out= out_scale * pred_img.abs()**2
+                pred_out= out_scale * (pred_img.abs()**2) * circ[:,spos:epos,spos:epos]
 
                 loss = criterion(pred_out, gt_angle)  
                 
