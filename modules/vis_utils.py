@@ -183,6 +183,11 @@ def plot_phase_amp_weights_fourier(model, pred_img_set, gt_img_set, caption= 'no
         ts_amp = torch.sigmoid(model.layer_blocks[idx].amp_weights.detach().cpu()) # amplitude coefficients of the layer
         ts_phase = model.layer_blocks[idx].phase_weights.detach().cpu() # phase coefficients of the layer
 
+        if len(ts_phase.shape) == 3:
+            ts= (model.layer_blocks[idx].rings.detach().cpu() * ts_amp * torch.exp(1j*ts_phase)).sum(dim=0).view(model.layer_blocks[idx].n_i, model.layer_blocks[idx].n_i)
+            ts_amp = ts.abs()
+            ts_phase = ts.angle()
+        
         plt.subplot(1+add_rows,6,7+(3*idx))
         plt.imshow(ts_phase.numpy())
         plt.colorbar()
