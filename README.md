@@ -1,11 +1,9 @@
 # Differentiable Microscopy Designs an All Optical Phase Retrieval Microscope
 
 
-We introduce Differentiable Microscopy ($\partial \mu$), a deep learning-based design paradigm, to design new interpretable microscope architectures. Our focus is on building an all-optical quantitative phase microscope (QPM) design that requires no computational post-reconstruction. Our designs include <b>(A)</b> Learnable Fourier filter (LFF) based design and <b>(B)</b> Diffractive deep neural network based design (PhaseD2NN). We outperform the existing benchmark for all-optical phase-to-intensity conversion on multiple datasets. This repository contains the official PyTorch implementation of our designs. 
+We introduce Differentiable Microscopy ($\partial \mu$), a deep learning-based top-down design paradigm for optical microscopes. Using all-optical phase retrieval as an illustrative example, we demonstrate the effectiveness of data-driven microscopy design through $\partial \mu$. Furthermore, we conduct comprehensive comparisons with competing methods, showcasing the consistent superiority of our learned designs across multiple datasets, including biological samples. This repository contains the official PyTorch implementation of our designs. 
 
-<div align="center">
-  <img width="50%" alt="Differentiable microscopy based all-optical phase to intensity conversion." src="overview.png">
-</div>
+
 
 ## Running Pretrained Models
 
