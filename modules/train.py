@@ -35,11 +35,16 @@ def train_and_log(cfg):
     save_results_local = cfg['save_results_local'] # Indicates after how many number of epochs results should be saved locally
     log_wandb= cfg['log_wandb']
     
-    train_loader, val_loader = eval(cfg['get_dataloaders'])(cfg['img_size'], cfg['train_batch_size'], torch_seed,  task_type= task_type, shrinkFactor = shrinkFactor, cfg=cfg)
+    train_loader, val_loader, _ = eval(cfg['get_dataloaders'])(cfg['img_size'], cfg['train_batch_size'], torch_seed,  task_type= task_type, shrinkFactor = shrinkFactor, cfg=cfg)
     device = cfg['device']
 
     torch.manual_seed(torch_seed)
-    model = eval(model_type)(cfg).to(device)
+    ring_optimize = cfg['ring_optimize'] if 'ring_optimize' in cfg.keys() else False
+        
+    if ring_optimize:
+        model = eval(model_type)(cfg,layer=fourier_ring_layer).to(device)
+    else:
+        model = eval(model_type)(cfg).to(device)
     
     if (log_wandb): wandb.watch(model)
     
@@ -62,7 +67,7 @@ def train_and_log(cfg):
     for epoch in range(cfg['epochs']):
         # Train loop:
         loss_train, ssim11rd_train,l1_train,_ ,_               = loop(model, train_loader, criterion, opt, device, type_='train', model_type=model_type, testing= testing, cfg = cfg)
-        # Test loop:
+        # Validation loop:
         loss_val, ssim11rd_val, l1_val, gt_img_val, pred_img_val = loop(model, val_loader, criterion, opt, device, type_= 'val', model_type=model_type, testing= testing, cfg = cfg)
         
         losses_train.append(loss_train)
