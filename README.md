@@ -64,10 +64,10 @@ unzip -j -qq bacteria.zip -d datasets/bacteria/val
 ```
 
 Update `dataloaders.py` to set,
-- MNIST `data_dir` (any existing path will work) in line [30](https://github.com/Bantami/All-Optical-QPM/blob/683d3db9c9fee2cfd3c0545c26dc2c07ba019669/modules/dataloaders.py#L30)
+- MNIST `data_dir` (any existing path will work) in line [30](https://github.com/wadduwagelab/All-Optical-QPM/blob/2d15f2d381f3255a213599c7b850cc6d6791a86d/modules/dataloaders.py#L30)
 and 
-- HeLa `data_dir` in line [57](https://github.com/Bantami/All-Optical-QPM/blob/683d3db9c9fee2cfd3c0545c26dc2c07ba019669/modules/dataloaders.py#L57)
-- Bacteria `data_dir` in line [111](https://github.com/Bantami/All-Optical-QPM/blob/3b872b2dd8bc9c9ac2218a83db487d738fd83bb2/modules/dataloaders.py#L111)
+- HeLa `data_dir` in line [60](https://github.com/wadduwagelab/All-Optical-QPM/blob/2d15f2d381f3255a213599c7b850cc6d6791a86d/modules/dataloaders.py#L60)
+- Bacteria `data_dir` in line [89](https://github.com/wadduwagelab/All-Optical-QPM/blob/2d15f2d381f3255a213599c7b850cc6d6791a86d/modules/dataloaders.py#L89)
 
 
 
@@ -111,17 +111,19 @@ Please find the training notebooks for each of the models for each dataset below
 
 
 #### Learnable Fourier Filter (LFF)
-- [LFF - MNIST](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/LearnableFourierFilter/LFF_MNIST.ipynb)
+- [LFF - MNIST [0,Pi]](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/LearnableFourierFilter/LFF_MNIST.ipynb)
+- [LFF - MNIST [0,2Pi]](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/LearnableFourierFilter/LFF_MNIST_2pi.ipynb)
 - [LFF - HeLa [0,Pi]](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/LearnableFourierFilter/LFF_HeLA_pi.ipynb)
 - [LFF - HeLa [0,2Pi]](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/LearnableFourierFilter/LFF_HeLA.ipynb)
 
-#### PhaseD2NN  
+#### D2NN  
 - [PhaseD2NN - MNIST](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/PhaseD2NN/PhaseD2NN_mnist.ipynb)
 - [PhaseD2NN - HeLa [0,Pi]](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/PhaseD2NN/PhaseD2NN_hela_pi.ipynb) 
 - [PhaseD2NN - HeLa [0,2Pi]](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/PhaseD2NN/PhaseD2NN_hela_2pi.ipynb)
 
 #### Complex-valued linear CNN
-- [Complex-CNN - MNIST](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/ComplexCNN/complexCNN_MNIST.ipynb)
+- [Complex-CNN - MNIST [0,Pi]](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/ComplexCNN/complexCNN_MNIST.ipynb)
+- [Complex-CNN - MNIST [0,2Pi]](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/ComplexCNN/complexCNN_MNIST_2pi.ipynb)
 - [Complex-CNN - HeLa [0,Pi]](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/ComplexCNN/complexCNN_HeLA_pi.ipynb)
 - [Complex-CNN - HeLa [0,2Pi]](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/ComplexCNN/complexCNN_HeLA.ipynb)
 
