@@ -7,7 +7,7 @@ We introduce Differentiable Microscopy ($\partial \mu$), a deep learning-based t
   <img width="50%" alt="Differentiable microscopy based all-optical phase retrieval" src="overview.png">
 </div>
 
-## Running Pretrained Models
+## Running Pretrained Models (To be Updated)
 
 Here we provide the Google Colab notebooks to reproduce the results of our best performing models for each dataset for our microscopy designs.
 
@@ -15,25 +15,31 @@ Here we provide the Google Colab notebooks to reproduce the results of our best 
   - SSIM score for the unseen dataset. SSIM values should match the below table.
   - Groundruth and the corresponding reconstructed images will be printed in the notebooks
 - <b>Expected runtime for Setting up and Inference on Colab</b> : ~2 Minutes (Make sure to select a GPU runtime)
+- <b>Expected runtime for Inference on a normal desktop with GPU</b> : \<to be updated\>
+
+### Performance of complex-valued linear CNNs (SSIM)
+| Method                    | MNIST [0, Pi]  | MNIST [0, 2Pi] | HeLa [0,Pi] | HeLa [0,2Pi] | Bacteria [0, Pi] | Colab Notebook |
+|---------------------------|----------------|----------------|-------------|--------------|------------------|----------------|
+| Complex-valued linear CNN |     0.9982     |     0.7913     |    0.9417   |   0.8619     |      0.9938      | <a href="https://colab.research.google.com/github/Bantami/All-Optical-QPM/blob/main/Colab/cnn_inference_colab.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>               |
 
 ### Performance of Optical Models (SSIM)
 
-| Model                            | MNIST  | HeLa [0,Pi] | HeLa [0,2Pi] | Bacteria | Colab Notebook |
-|----------------------------------|--------|-------------|--------------|----------|----------------|
-| Generalized Phase Contrast (GPC) | 0.5134 | 0.5652      | 0.4056       | 0.6740   | <a href="https://colab.research.google.com/github/Bantami/All-Optical-QPM/blob/main/Colab/GPC_baseline_inference_colab.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>                |
-| Learnable Fourier Filter (LFF)   | 0.9184 | 0.7217      | 0.5921       | 0.9820   | <a href="https://colab.research.google.com/github/Bantami/All-Optical-QPM/blob/main/Colab/lff_pretrained_model_inference_colab.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>               |
-| PhaseD2NN                        | 0.9146 | 0.6254      | 0.4854       | 0.9915   |    <a href="https://colab.research.google.com/github/Bantami/All-Optical-QPM/blob/main/Colab/d2nn_pretrained_model_inference_colab.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>            |
-
-### Performance of complex-valued linear CNNs (SSIM)
-| Model                     | MNIST  | HeLa [0,Pi] | HeLa [0,2Pi] | Bacteria | Colab Notebook |
-|---------------------------|--------|-------------|--------------|----------|----------------|
-| Complex-valued linear CNN | 0.9727 | 0.9052       | 0.7059       | 0.9660   | <a href="https://colab.research.google.com/github/Bantami/All-Optical-QPM/blob/main/Colab/cnn_inference_colab.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>               |
+| Method                           | MNIST [0, Pi]  | MNIST [0, 2Pi] | HeLa [0,Pi] | HeLa [0,2Pi] | Bacteria [0, Pi] | Colab Notebook |
+|----------------------------------|----------------|----------------|-------------|--------------|------------------|----------------|
+| LFF                              |     0.9205     |     0.6814     |    0.7783   |   0.6078     |      0.9823      | <a href="https://colab.research.google.com/github/Bantami/All-Optical-QPM/blob/main/Colab/lff_pretrained_model_inference_colab.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>               |
+| GPC                              |     0.9036     |     0.4406     |    0.7786   |   0.5509     |      0.9600      | <a href="https://colab.research.google.com/github/Bantami/All-Optical-QPM/blob/main/Colab/GPC_baseline_inference_colab.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>                |
+| D2NN                             |     0.9433     |     0.7703     |    0.6655   |   0.4942     |      0.9926      |    <a href="https://colab.research.google.com/github/Bantami/All-Optical-QPM/blob/main/Colab/d2nn_pretrained_model_inference_colab.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>            |
+|----------------------------------|----------------|----------------|-------------|--------------|------------------|----------------|
+| Phase-LFF                        |     0.9177     |     0.6777     |    0.7771   |   0.6096     |      0.9825      | <a href="https://colab.research.google.com/github/Bantami/All-Optical-QPM/blob/main/Colab/lff_pretrained_model_inference_colab.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>               |
+| Phase-LRF                        |     0.8573     |     0.6211     |    0.7583   |   0.6078     |      0.9508      | <a href="https://colab.research.google.com/github/Bantami/All-Optical-QPM/blob/main/Colab/lff_pretrained_model_inference_colab.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>               |
+| Phase-GPC                        |     0.8466     |     0.4191     |    0.7297   |   0.5184     |      0.9479      | <a href="https://colab.research.google.com/github/Bantami/All-Optical-QPM/blob/main/Colab/GPC_baseline_inference_colab.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>                |
+| Phase-D2NN                       |     0.8796     |     0.6906     |    0.6334   |   0.4191     |      0.9867      |    <a href="https://colab.research.google.com/github/Bantami/All-Optical-QPM/blob/main/Colab/d2nn_pretrained_model_inference_colab.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>            |
 
 
 
 ## Training Models
 
-### 1. Clone the reposoitory
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/Bantami/All-Optical-QPM.git
