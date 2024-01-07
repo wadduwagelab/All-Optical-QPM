@@ -15,7 +15,7 @@ gdown https://drive.google.com/uc?id=12AdUSF7DawnqVJMzfPzqD7mUa7kmZT2L
 echo "Bacteria dataset downloaded ✔"
 
 # Download pretrained models
-gdown https://drive.google.com/uc?id=1tHBWjNJPRHf1VX0XJicLIKs8av43_TPz
+gdown 1-1TIEuYUmF6CTIza_7Z5ayB4lcIAPs5D
 echo "Pretrained models downloaded ✔"
 
 mkdir /content/datasets
