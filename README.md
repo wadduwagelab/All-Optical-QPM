@@ -46,20 +46,18 @@ git clone https://github.com/Bantami/All-Optical-QPM.git
 
 ### 2. Download HeLa and Bacteria datasets and set data_dir path in `dataloaders.py`
 
-[HeLa dataset link](https://drive.google.com/uc?id=1ickDfs6bA-YM7RQSaMPRqFnC7YApjW8e), [Bacteria dataset link](https://drive.google.com/uc?id=1CRaPVYVUs-vJA6SoXqeNhBRiqMwITbv6)
+[HeLa dataset link](https://drive.google.com/file/d/16vYiOBYJ8BDCBVHoOv6eqcXaLQhiS8Ik/view?usp=share_link), [Bacteria dataset link](https://drive.google.com/file/d/12AdUSF7DawnqVJMzfPzqD7mUa7kmZT2L/view?usp=share_link)
 
 To download the dataset through the commandline, follow the below steps
 
 ```bash
 pip install gdown
-gdown https://drive.google.com/uc?id=1ickDfs6bA-YM7RQSaMPRqFnC7YApjW8e
-gdown https://drive.google.com/uc?id=1CRaPVYVUs-vJA6SoXqeNhBRiqMwITbv6
+gdown https://drive.google.com/uc?id=16vYiOBYJ8BDCBVHoOv6eqcXaLQhiS8Ik
+gdown https://drive.google.com/uc?id=12AdUSF7DawnqVJMzfPzqD7mUa7kmZT2L
 
 mkdir datasets/
 unzip -qq hela.zip -d datasets/
-
-mkdir -p datasets/bacteria/val
-unzip -j -qq bacteria.zip -d datasets/bacteria/val
+unzip -qq bacteria.zip -d datasets/
 
 ```
 
@@ -115,6 +113,7 @@ Please find the training notebooks for each of the models for each dataset below
 - [LFF - MNIST [0,2Pi]](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/LearnableFourierFilter/LFF_MNIST_2pi.ipynb)
 - [LFF - HeLa [0,Pi]](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/LearnableFourierFilter/LFF_HeLA_pi.ipynb)
 - [LFF - HeLa [0,2Pi]](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/LearnableFourierFilter/LFF_HeLA.ipynb)
+- [LFF - Bacteria](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/LearnableFourierFilter/LFF_Bacteria.ipynb)
 
 #### D2NN  
 - [PhaseD2NN - MNIST](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/PhaseD2NN/PhaseD2NN_mnist.ipynb)
@@ -126,6 +125,7 @@ Please find the training notebooks for each of the models for each dataset below
 - [Complex-CNN - MNIST [0,2Pi]](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/ComplexCNN/complexCNN_MNIST_2pi.ipynb)
 - [Complex-CNN - HeLa [0,Pi]](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/ComplexCNN/complexCNN_HeLA_pi.ipynb)
 - [Complex-CNN - HeLa [0,2Pi]](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/ComplexCNN/complexCNN_HeLA.ipynb)
+- [Complex-CNN - Bacteria](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/ComplexCNN/complexCNN_Bacteria.ipynb)
 
 
 ## Directory Structure:
@@ -156,11 +156,15 @@ Please find the training notebooks for each of the models for each dataset below
 │   │   ├── complexCNN_HeLA.ipynb
 │   │   ├── complexCNN_HeLA_pi.ipynb
 │   │   └── complexCNN_MNIST.ipynb
+│   │   └── complexCNN_MNIST_2pi.ipynb
+│   │   └── complexCNN_Bacteria.ipynb 
 │   ├── GPC.ipynb
 │   ├── LearnableFourierFilter
 │   │   ├── LFF_HeLA.ipynb
 │   │   ├── LFF_HeLA_pi.ipynb
 │   │   └── LFF_MNIST.ipynb
+│   │   └── LFF_MNIST_2pi.ipynb
+│   │   └── LFF_Bacteria.ipynb
 │   ├── PhaseD2NN
 │   │   ├── PhaseD2NN_hela_2pi.ipynb
 │   │   ├── PhaseD2NN_hela_pi.ipynb

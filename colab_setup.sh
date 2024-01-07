@@ -9,9 +9,9 @@ pip -q install imgaug==0.2.6
 pip install -q -r /content/All-Optical-QPM/requirements.txt
 
 # Download Datasets
-gdown https://drive.google.com/uc?id=1ickDfs6bA-YM7RQSaMPRqFnC7YApjW8e
+gdown https://drive.google.com/uc?id=16vYiOBYJ8BDCBVHoOv6eqcXaLQhiS8Ik
 echo "HeLa dataset downloaded ✔"
-gdown https://drive.google.com/uc?id=1CRaPVYVUs-vJA6SoXqeNhBRiqMwITbv6
+gdown https://drive.google.com/uc?id=12AdUSF7DawnqVJMzfPzqD7mUa7kmZT2L
 echo "Bacteria dataset downloaded ✔"
 
 # Download pretrained models
@@ -21,7 +21,6 @@ echo "Pretrained models downloaded ✔"
 mkdir /content/datasets
 unzip -qq hela.zip -d /content/datasets/
 
-mkdir -p /content/datasets/bacteria/val
-unzip -j -qq bacteria.zip -d /content/datasets/bacteria/val
+unzip -qq bacteria.zip -d /content/datasets/
 
 unzip -qq models.zip -d /content/models/
