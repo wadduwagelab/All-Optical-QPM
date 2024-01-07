@@ -104,7 +104,7 @@ class fourier_layer(nn.Module):
         return output_e_field
 
 class fourier_ring_layer(nn.Module):
-     '''
+    '''
         Learnable Ring Filter (LRF) in the 4-F system
     '''
     def __init__(self, n_neurons_input, n_neurons_output, neuron_size, learn_type='both', device= 'cpu', weights= None, circular = False, ring_step=1, **kwargs):
