@@ -32,7 +32,7 @@ def get_mnist_dataloaders(img_size, train_batch_size ,torch_seed=10, task_type= 
     train_data = datasets.MNIST(root=data_dir, train=True, download=True)
     test_data = datasets.MNIST(root=data_dir, train=False, download=True)
 
-    my_transform= transforms.Compose([transforms.ToTensor(), transforms.Resize((int(img_size//shrinkFactor), int(img_size//shrinkFactor))), transforms.CenterCrop((img_size, img_size))])
+    my_transform= transforms.Compose([transforms.ToTensor(), transforms.Resize((int(img_size//shrinkFactor), int(img_size//shrinkFactor)), antialias=None), transforms.CenterCrop((img_size, img_size))])
 
     train_loader = DataLoader(mnist_dataset(data= train_data.data[:54000], labels= train_data.targets[:54000], transform= my_transform, task_type= task_type, cfg= cfg), batch_size=train_batch_size, shuffle=True, drop_last= True)
     val_loader = DataLoader(mnist_dataset(data= train_data.data[54000:], labels= train_data.targets[54000:], transform= my_transform, task_type= task_type, cfg= cfg), batch_size=32, shuffle=False, drop_last= True)
@@ -56,11 +56,11 @@ def get_qpm_np_dataloaders(img_size, train_batch_size ,torch_seed=10, data_dir= 
             val_loader   : Data loader for validation
     '''
 
-    #data_dir= '/content/datasets/qpm_np_v3/'
-    data_dir= '/n/holyscratch01/wadduwage_lab/fypteam_22/datasets/qpm_np_v3_RemovedInverted'
+    data_dir= '/content/datasets/hela/'
+    #data_dir= '/n/holyscratch01/wadduwage_lab/fypteam_22/datasets/qpm_np_v3_RemovedInverted'
     torch.manual_seed(torch_seed)
 
-    my_transform= transforms.Compose([transforms.ToTensor(), transforms.Resize((int(img_size//shrinkFactor), int(img_size//shrinkFactor))), transforms.CenterCrop((img_size, img_size))])
+    my_transform= transforms.Compose([transforms.ToTensor(), transforms.Resize((int(img_size//shrinkFactor), int(img_size//shrinkFactor)),antialias=None), transforms.CenterCrop((img_size, img_size))])
 
     train_data = qpm_np_dataset(data_dir=data_dir, type_= 'train', transform = my_transform, task_type= task_type, cfg= cfg)
     val_data   = qpm_np_dataset(data_dir=data_dir, type_= 'val',   transform = my_transform, task_type= task_type, cfg= cfg)
@@ -86,11 +86,13 @@ def get_bacteria_dataloaders(img_size, train_batch_size ,torch_seed=10, data_dir
             train_loader : Data loader for training
             val_loader   : Data loader for validation
     '''
-    data_dir= '/n/holyscratch01/wadduwage_lab/D2NN_QPM_classification/datasets/bacteria_np'
+    
+    data_dir= '/content/datasets/bacteria/'
+    #data_dir= '/n/holyscratch01/wadduwage_lab/D2NN_QPM_classification/datasets/bacteria_np'
     
     torch.manual_seed(torch_seed)
     # transforms.ToPILImage(), 
-    my_transform= transforms.Compose([transforms.ToTensor(), transforms.Resize((int(img_size//shrinkFactor), int(img_size//shrinkFactor))), transforms.CenterCrop((img_size, img_size))])
+    my_transform= transforms.Compose([transforms.ToTensor(), transforms.Resize((int(img_size//shrinkFactor), int(img_size//shrinkFactor)),antialias=None), transforms.CenterCrop((img_size, img_size))])
 
     train_data = bacteria_dataset(data_dir=data_dir, type_= 'train', transform = my_transform, task_type= task_type, biasOnoise = biasOnoise, photon_count = photon_count, cfg= cfg)
     val_data   = bacteria_dataset(data_dir=data_dir, type_= 'val',   transform = my_transform, task_type= task_type, biasOnoise = biasOnoise, photon_count = photon_count, cfg= cfg)
