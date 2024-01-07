@@ -111,20 +111,22 @@ Please find the training notebooks for each of the models for each dataset below
 #### Learnable Fourier Filter (LFF)
 - [LFF - MNIST [0,Pi]](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/LearnableFourierFilter/LFF_MNIST.ipynb)
 - [LFF - MNIST [0,2Pi]](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/LearnableFourierFilter/LFF_MNIST_2pi.ipynb)
-- [LFF - HeLa [0,Pi]](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/LearnableFourierFilter/LFF_HeLA_pi.ipynb)
-- [LFF - HeLa [0,2Pi]](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/LearnableFourierFilter/LFF_HeLA.ipynb)
+- [LFF - HeLa [0,Pi]](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/LearnableFourierFilter/LFF_HeLA_pi.ipynb)
+- [LFF - HeLa [0,2Pi]](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/LearnableFourierFilter/LFF_HeLA.ipynb)
 - [LFF - Bacteria](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/LearnableFourierFilter/LFF_Bacteria.ipynb)
 
 #### D2NN  
-- [PhaseD2NN - MNIST](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/PhaseD2NN/PhaseD2NN_mnist.ipynb)
-- [PhaseD2NN - HeLa [0,Pi]](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/PhaseD2NN/PhaseD2NN_hela_pi.ipynb) 
-- [PhaseD2NN - HeLa [0,2Pi]](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/PhaseD2NN/PhaseD2NN_hela_2pi.ipynb)
+- [PhaseD2NN - MNIST [0,Pi]](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/PhaseD2NN/PhaseD2NN_mnist.ipynb)
+- [PhaseD2NN - MNIST [0,2Pi]](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/PhaseD2NN/PhaseD2NN_mnist_2pi.ipynb)
+- [PhaseD2NN - HeLa [0,Pi]](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/PhaseD2NN/PhaseD2NN_hela_pi.ipynb) 
+- [PhaseD2NN - HeLa [0,2Pi]](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/PhaseD2NN/PhaseD2NN_hela_2pi.ipynb)
+- [PhaseD2NN - Bacteria](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/PhaseD2NN/PhaseD2NN_bacteria.ipynb)
 
 #### Complex-valued linear CNN
-- [Complex-CNN - MNIST [0,Pi]](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/ComplexCNN/complexCNN_MNIST.ipynb)
+- [Complex-CNN - MNIST [0,Pi]](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/ComplexCNN/complexCNN_MNIST.ipynb)
 - [Complex-CNN - MNIST [0,2Pi]](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/ComplexCNN/complexCNN_MNIST_2pi.ipynb)
-- [Complex-CNN - HeLa [0,Pi]](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/ComplexCNN/complexCNN_HeLA_pi.ipynb)
-- [Complex-CNN - HeLa [0,2Pi]](https://github.com/Bantami/All-Optical-QPM/blob/main/Notebooks/ComplexCNN/complexCNN_HeLA.ipynb)
+- [Complex-CNN - HeLa [0,Pi]](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/ComplexCNN/complexCNN_HeLA_pi.ipynb)
+- [Complex-CNN - HeLa [0,2Pi]](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/ComplexCNN/complexCNN_HeLA.ipynb)
 - [Complex-CNN - Bacteria](https://github.com/wadduwagelab/All-Optical-QPM/blob/main/Notebooks/ComplexCNN/complexCNN_Bacteria.ipynb)
 
 
@@ -137,6 +139,7 @@ Please find the training notebooks for each of the models for each dataset below
 │   ├── d2nn_pretrained_model_inference_colab.ipynb
 │   ├── GPC_baseline_inference_colab.ipynb
 │   └── lff_pretrained_model_inference_colab.ipynb
+│   └── PhaseD2NN_pretrained_model_inference_colab.ipynb
 ├── colab_setup.sh
 ├── modules
 │   ├── d2nn_layers.py
@@ -169,6 +172,8 @@ Please find the training notebooks for each of the models for each dataset below
 │   │   ├── PhaseD2NN_hela_2pi.ipynb
 │   │   ├── PhaseD2NN_hela_pi.ipynb
 │   │   └── PhaseD2NN_mnist.ipynb
+│   │   └── PhaseD2NN_mnist_2pi.ipynb
+│   │   └── PhaseD2NN_bacteria.ipynb
 │   └── results
 ├── overview.png
 ├── README.md
