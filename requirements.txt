@@ -1,2 +1,3 @@
 complexPyTorch==0.3
 pytorch-msssim
+wandb
