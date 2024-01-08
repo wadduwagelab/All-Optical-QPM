@@ -23,4 +23,4 @@ unzip -qq hela.zip -d /content/datasets/
 
 unzip -qq bacteria.zip -d /content/datasets/
 
-unzip -qq models.zip -d /content/models/
+unzip -qq models.zip
