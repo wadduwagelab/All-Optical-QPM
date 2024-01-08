@@ -9,7 +9,7 @@ pip -q install imgaug==0.2.6
 pip install -q -r /content/All-Optical-QPM/requirements.txt
 
 # Download Datasets
-gdown https://drive.google.com/uc?id=16vYiOBYJ8BDCBVHoOv6eqcXaLQhiS8Ik
+gdown https://drive.google.com/uc?id=10mj-mPmeStdOWvZnI-nVx8J89Wyp8RGj
 echo "HeLa dataset downloaded ✔"
 gdown https://drive.google.com/uc?id=12AdUSF7DawnqVJMzfPzqD7mUa7kmZT2L
 echo "Bacteria dataset downloaded ✔"

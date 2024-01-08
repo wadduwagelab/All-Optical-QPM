@@ -46,13 +46,13 @@ git clone https://github.com/Bantami/All-Optical-QPM.git
 
 ### 2. Download HeLa and Bacteria datasets and set data_dir path in `dataloaders.py`
 
-[HeLa dataset link](https://drive.google.com/file/d/16vYiOBYJ8BDCBVHoOv6eqcXaLQhiS8Ik/view?usp=share_link), [Bacteria dataset link](https://drive.google.com/file/d/12AdUSF7DawnqVJMzfPzqD7mUa7kmZT2L/view?usp=share_link)
+[HeLa dataset link](https://drive.google.com/file/d/10mj-mPmeStdOWvZnI-nVx8J89Wyp8RGj/view?usp=sharing), [Bacteria dataset link](https://drive.google.com/file/d/12AdUSF7DawnqVJMzfPzqD7mUa7kmZT2L/view?usp=share_link)
 
 To download the dataset through the commandline, follow the below steps
 
 ```bash
 pip install gdown
-gdown https://drive.google.com/uc?id=16vYiOBYJ8BDCBVHoOv6eqcXaLQhiS8Ik
+gdown https://drive.google.com/uc?id=10mj-mPmeStdOWvZnI-nVx8J89Wyp8RGj
 gdown https://drive.google.com/uc?id=12AdUSF7DawnqVJMzfPzqD7mUa7kmZT2L
 
 mkdir datasets/
