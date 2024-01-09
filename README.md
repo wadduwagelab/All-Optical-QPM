@@ -14,7 +14,6 @@ Here we provide the Google Colab notebooks to reproduce the results of our best 
 - <b>Expected results of each notebook :</b>
   - SSIM score for the unseen dataset. SSIM values should match the below table.
   - Groundruth and the corresponding reconstructed images will be printed in the notebooks
-- <b>Expected runtime for Setting up and Inference on Colab</b> : ~2 Minutes (Make sure to select a GPU runtime)
 - <b>Expected runtime for Inference (for LFFs) on a normal desktop (CPU: Four 11th Gen Intel(R) Core(TM) i7-1165G7 (2.8GHz) cores) with GPU (2GB NVIDIA GeForce MX330)</b> : 10.9785 $\pm$ 0.354 ms
 
 ### Performance of complex-valued linear CNNs (SSIM)
